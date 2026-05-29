@@ -1,0 +1,17 @@
+{
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifierEnding": "minimal",
+  "javascript.preferences.importModuleSpecifierEnding": "minimal",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "files.eol": "\n",
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
+}

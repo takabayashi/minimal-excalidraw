@@ -1,0 +1,34 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug all tests (Vitest)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/vitest",
+      "runtimeArgs": ["run", "--no-file-parallelism"],
+      "skipFiles": ["<node_internals>/**"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Debug current test file (Vitest)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/vitest",
+      "runtimeArgs": ["run", "--no-file-parallelism", "${file}"],
+      "skipFiles": ["<node_internals>/**"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Vite dev server (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "yarn: dev",
+      "sourceMaps": true
+    }
+  ]
+}

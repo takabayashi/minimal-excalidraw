@@ -1,0 +1,270 @@
+:root {
+  --bg: #f8f9fa;
+  --panel-bg: #ffffff;
+  --panel-border: #dee2e6;
+  --text: #1e1e1e;
+  --text-muted: #6c757d;
+  --accent: #1971c2;
+  --accent-soft: #e7f5ff;
+  --selection: #1971c2;
+
+  --radius: 6px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition:
+    background 0.12s ease,
+    border-color 0.12s ease;
+}
+
+button:hover {
+  background: var(--accent-soft);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+button[aria-pressed="true"],
+button.is-active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+input[type="text"],
+input[type="number"] {
+  font: inherit;
+  padding: 4px 8px;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: var(--panel-bg);
+  color: var(--text);
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.toolbar {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+}
+
+.toolbar .divider {
+  width: 1px;
+  background: var(--panel-border);
+  margin: 4px 4px;
+}
+
+.session-panel {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 240px;
+  max-height: calc(100vh - 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+  overflow: auto;
+}
+
+.session-panel header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.session-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.session-panel li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 4px 6px;
+  border-radius: var(--radius);
+}
+
+.session-panel li.is-current {
+  background: var(--accent-soft);
+}
+
+.session-panel .save-status {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.style-panel {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+}
+
+.style-panel section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.style-panel section > label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.swatch-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  border: 2px solid var(--panel-border);
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+}
+
+.swatch[aria-checked="true"] {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-soft);
+}
+
+.swatch.transparent {
+  background:
+    linear-gradient(45deg, #ddd 25%, transparent 25%) 0 0 / 8px 8px,
+    linear-gradient(-45deg, #ddd 25%, transparent 25%) 0 4px / 8px 8px,
+    linear-gradient(45deg, transparent 75%, #ddd 75%) 4px -4px / 8px 8px,
+    linear-gradient(-45deg, transparent 75%, #ddd 75%) -4px 0 / 8px 8px,
+    #fff;
+}
+
+.segmented {
+  display: inline-flex;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.segmented button {
+  border: 0;
+  border-radius: 0;
+  padding: 4px 8px;
+  font-size: 13px;
+}
+
+.segmented button + button {
+  border-left: 1px solid var(--panel-border);
+}
+
+.canvas-host {
+  position: absolute;
+  inset: 0;
+}
+
+.canvas-host canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  touch-action: none;
+}
+
+.text-overlay {
+  position: absolute;
+  z-index: 5;
+  background: transparent;
+  border: 1px dashed var(--accent);
+  outline: none;
+  resize: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: inherit;
+}
