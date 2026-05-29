@@ -7,7 +7,9 @@ A minimal browser-based Excalidraw-like graphic design tool, written in TypeScri
 - **Styling**: stroke + fill colour, stroke width, dash style, opacity, font family + size
 - **Sessions**: name, save, load, list, delete; auto-save with debounce
 - **Persistence**: browser `localStorage` today, swappable for any backend tomorrow
-- **Tested**: 164 unit + integration tests (95.8% line coverage)
+- **Tested**: 167 unit + integration tests (95.8% line coverage)
+
+Source: [github.com/takabayashi/minimal-excalidraw](https://github.com/takabayashi/minimal-excalidraw)
 
 ## Requirements
 
@@ -17,6 +19,8 @@ A minimal browser-based Excalidraw-like graphic design tool, written in TypeScri
 ## Setup
 
 ```bash
+git clone git@github.com:takabayashi/minimal-excalidraw.git
+cd minimal-excalidraw
 yarn install
 ```
 
